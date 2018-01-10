@@ -1,0 +1,35 @@
+{
+  "name": "ecmascript-react",
+  "version": "1.0.0",
+  "description": "A bundler for React which outputs native Ecmascript modules to be used in browsers",
+  "main": "index.js",
+  "scripts": {
+    "start": "node ./index.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/wearespindle/ecmascript-module-react.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/wearespindle/ecmascript-module-react/issues"
+  },
+  "homepage": "https://github.com/wearespindle/ecmascript-module-react#readme",
+  "dependencies": {
+    "fbjs": "^0.8.16",
+    "prop-types": "^15.6.0"
+  },
+  "devDependencies": {
+    "babel-core": "^6.26.0",
+    "babel-plugin-syntax-object-rest-spread": "^6.13.0",
+    "babel-plugin-transform-object-rest-spread": "^6.26.0",
+    "rollup": "^0.53.3",
+    "rollup-plugin-babel": "^3.0.3",
+    "rollup-plugin-commonjs": "^8.2.6",
+    "rollup-plugin-flow": "^1.1.1",
+    "rollup-plugin-includepaths": "^0.2.2",
+    "rollup-plugin-node-resolve": "^3.0.0"
+  }
+}
