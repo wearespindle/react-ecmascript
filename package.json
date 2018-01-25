@@ -1,7 +1,8 @@
 {
   "name": "ecmascript-react",
   "version": "1.0.0",
-  "description": "A bundler for React which outputs native Ecmascript modules to be used in browsers",
+  "description":
+    "A bundler for React which outputs native Ecmascript modules of React and ReactDOM to be used in browsers",
   "main": "index.js",
   "scripts": {
     "start": "node ./index.js"
@@ -11,7 +12,7 @@
     "url": "git+https://github.com/wearespindle/ecmascript-module-react.git"
   },
   "keywords": [],
-  "author": "",
+  "author": "Joël Kuijten <joel.kuijten@wearespindle.com>",
   "license": "ISC",
   "bugs": {
     "url": "https://github.com/wearespindle/ecmascript-module-react/issues"
