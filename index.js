@@ -1,5 +1,5 @@
 const fs = require('fs');
-const { join } = require('path');
+const { join, extname } = require('path');
 const { promisify } = require('util');
 const recast = require('recast');
 const parser = require('recast/parsers/acorn');
@@ -26,22 +26,20 @@ makeDir(join(__dirname, 'dist')).then(() =>
 
         return read(joiner(targetsDirectory.concat(filename)), 'utf8').then(targetContent => {
           const targtetAst = recast.parse(targetContent, { parser });
-          // console.log(walk(targtetAst.program, targetSelectSteps));
-          // console.log(targtetAst.program.body[0]);
-          // return '';
 
           return read(sourceFile).then(sourceContent => {
+
             const sourceAst = recast.parse(sourceContent, { parser });
+
+            // reference the part in the source AST we want to use
             const body = walk(sourceAst.program, sourceSelectSteps);
 
-            // console.log(body);
-            // console.log(walk(targtetAst.program, targetSelectSteps));
-
+            // select the part we want to replace in the target with the part of the source AST
             walk(targtetAst.program, targetSelectSteps).body = body;
 
             const generated = recast.print(targtetAst, { parser }).code;
 
-            return write(join(__dirname, 'dist', filename), generated, 'utf8');
+            return write(join(__dirname, 'dist', filename.replace(extname(filename), '.mjs')), generated, 'utf8');
           });
         });
       })

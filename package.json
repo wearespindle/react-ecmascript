@@ -1,7 +1,7 @@
 {
   "name": "ecmascript-react",
   "version": "1.0.0",
-  "description": "A bundler for React which outputs native Ecmascript modules of React and ReactDOM to be used in browsers",
+  "description": "A script which transform React and ReactDOM into native Ecmascript modules to be used in browsers",
   "main": "index.js",
   "scripts": {
     "start": "node ./index.js"
