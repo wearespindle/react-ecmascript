@@ -1,5 +1,5 @@
 {
-  "name": "ecmascript-react",
+  "name": "react-ecmascript",
   "version": "1.0.0",
   "description": "A script which transform React and ReactDOM into native Ecmascript modules to be used in browsers which support Ecmascript modules and module loading",
   "scripts": {
@@ -7,15 +7,15 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/wearespindle/ecmascript-module-react.git"
+    "url": "git@github.com:wearespindle/react-ecmascript.git"
   },
   "keywords": [],
   "author": "Joël Kuijten <joel.kuijten@wearespindle.com>",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/wearespindle/ecmascript-module-react/issues"
+    "url": "https://github.com/wearespindle/react-ecmascript/issues"
   },
-  "homepage": "https://github.com/wearespindle/ecmascript-module-react#readme",
+  "homepage": "https://github.com/wearespindle/react-ecmascript#readme",
   "dependencies": {},
   "devDependencies": {
     "acorn": "^5.7.1",
