@@ -1,22 +1,11 @@
 # react-ecmascript
+A script that transforms React and ReactDOM into Ecmascript versions so they can be used in browsers supporting Ecmascript modules and module laoding.
 
-A bundler script to create native ecmascript modules of react and react-dom to be used in browsers.
+In the root of this repo there are four scripts which are transformed versions of the UMD ditribution versions of react and react-dom (both development and production).
 
-This is a proof of concept to see if the current source of React is a viable source (with little or no transpiling) for a native ecmascript module version.
-Either with `<script type="module"></script>` or using `import React from url-to-react.js`.
+If you want to generate them again run ```$ npm i``` and ```$ npm run build```
 
-The packages folder in this repo is simply copy pasted from the react source on https://github.com/facebook/react since the tools and settings used in here are not compatible with the ones in the original react repo.
+# usage
+To use these scripts you need to copy these files over to a place where they can be downloaded by a browser, and the ```'react'``` in ```import react from 'react';``` needs to be changed to the uri through which it can be downloaded.
 
-# installation
-
-* `$ git clone git@github.com:wearespindle/react-ecmascript.git`
-* `$ cd react-ecmascript`
-* `$ npm i`
-* `$ npm start`
-* copy the files from the dist folder to whereever you want to serve them from, and in the react-dom.development.js file change the `'react'` in the import statement on line 1 (`import React from 'react';`) to the url where these files are served from.
-
-Than you can import them both using standard ecmascript inmport and use them in a browser with native ecmascript module and module loader support.
-
-# next steps
-
-Make an npm script to output minified sources of these files
+You can automate that in your project by for instance using Rollup.
