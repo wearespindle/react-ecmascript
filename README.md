@@ -8,7 +8,9 @@ If you want to have this script replace the import source in the react-dom modul
 When calling this script directly you can use ```node src/index.js --uri https://some-other-uri.com/``` or ```node src/index.js -u /some/dir/```
 
 You can also use this as a module if you want to get the sources returned as a Promise which resolves to an object containing all four the modules as strings. Like so:
-```const reactEcmascript = require('react-ecmascript');
+```
+const reactEcmascript = require('react-ecmascript');
+
 reactEcmascript('someUrl') // optional uri as argument
   .then(sources => {
     // sources is an object with the properties being the filename (like react.production.min.mjs) and the properties being the content of that module as a string
