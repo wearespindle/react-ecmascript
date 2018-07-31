@@ -15,7 +15,8 @@ reactEcmascript('someUrl') // optional uri as argument
 
     // do something with these sources, like saving them to disk or log them
     console.log(Object.keys(sources));
-  });```
+  });
+```
 
 To use the exported ECMAScript modules in a browser you copy these files over to a place where they can be downloaded by a browser (probably a build script or a development script), and the ```'react'``` in ```import react from 'react';``` need to be changed to the uri through which they can be downloaded. Like mentioned above this can be done by passing in the uri.
 
