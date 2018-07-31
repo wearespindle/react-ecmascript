@@ -16,9 +16,12 @@
     "url": "https://github.com/wearespindle/react-ecmascript/issues"
   },
   "homepage": "https://github.com/wearespindle/react-ecmascript#readme",
+  "main": "./src/index.js",
+  "bin": "./src/index.js",
   "dependencies": {},
   "devDependencies": {
     "acorn": "^5.7.1",
+    "args": "^5.0.0",
     "react": "^16.4.1",
     "react-dom": "^16.4.1",
     "recast": "^0.15.3"
