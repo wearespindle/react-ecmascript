@@ -27,7 +27,7 @@ module.exports = {
     o => (o.type === 'CallExpression' ? o : false),
     o => o.callee
   ],
-  importFilename: 'react.developmnet.mjs',
+  importFilename: 'react.development.mjs',
   importSelectSteps: [
     o => o.body,
     o => o.type === 'ImportDeclaration' ? o : false,
