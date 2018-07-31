@@ -1,7 +1,8 @@
 const { join } = require('path');
 
 module.exports = {
-  sourceFile: join(__dirname, '..', '..', 'node_modules', 'react-dom', 'umd', 'react-dom.development.js'),
+  sourceModule: 'react-dom',
+  sourceFile: join('umd', 'react-dom.development.js'),
   sourceSelectSteps: [
     o => o.body,
     function(o) {

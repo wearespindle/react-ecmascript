@@ -1,7 +1,7 @@
 #!/usr/bin/env node
 
 const fs = require('fs');
-const { join, extname } = require('path');
+const { join, extname, dirname } = require('path');
 const { promisify } = require('util');
 const recast = require('recast');
 const parser = require('recast/parsers/acorn');
@@ -34,16 +34,19 @@ function getModuleStrings(importSourceUri = flags.uri) {
         filenames.map(filename => {
           const {
             targetSelectSteps,
+            sourceModule,
             sourceFile,
             sourceSelectSteps,
             importSelectSteps,
             importFilename
           } = require(joiner(transformersDirectory.concat(filename)));
 
+          const resolvedSourceFile = joiner([dirname(require.resolve(sourceModule))].concat(sourceFile));
+
           return read(joiner(targetsDirectory.concat(filename)), 'utf8').then(targetContent => {
             const targtetAst = recast.parse(targetContent, { parser });
 
-            return read(sourceFile).then(sourceContent => {
+            return read(resolvedSourceFile).then(sourceContent => {
               const newFilename = filename.replace(extname(filename), '.mjs');
 
               const sourceAst = recast.parse(sourceContent, { parser });
@@ -66,7 +69,9 @@ function getModuleStrings(importSourceUri = flags.uri) {
                 filename: newFilename,
                 content: generated
               };
-            });
+            }).catch(err => {
+              console.error(err);
+            })
           });
         })
       )

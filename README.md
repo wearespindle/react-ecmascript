@@ -23,3 +23,6 @@ reactEcmascript('someUrl') // optional uri as argument
 To use the exported ECMAScript modules in a browser you copy these files over to a place where they can be downloaded by a browser (probably a build script or a development script), and the ```'react'``` in ```import react from 'react';``` need to be changed to the uri through which they can be downloaded. Like mentioned above this can be done by passing in the uri.
 
 You can automate that in your project by for instance using Rollup. For instance by adding the sources in the root to a Rollup configs ```external``` and ```output.paths```.
+
+
+When [react and react-dom have a module entry in their package.json](https://github.com/facebook/react/issues/10021) and they will have [formalized the top-level ES exports](https://github.com/facebook/react/issues/11503) this module will be deprecated. Untill then this is the next best thing if you want to use react and react-dom as ECMAScript modules in a browser.
