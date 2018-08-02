@@ -27,8 +27,8 @@
   "dependencies": {
     "acorn": "^5.7.1",
     "args": "^5.0.0",
-    "react": "^16.4.2",
-    "react-dom": "^16.4.2",
+    "react": "16.4.2",
+    "react-dom": "16.4.2",
     "recast": "^0.15.3"
   },
   "devDependencies": {}
