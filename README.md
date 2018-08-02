@@ -1,6 +1,6 @@
 # react-ecmascript
 
-ECMAScript versions of
+ECMAScript module versions of
 - react.production.min.js
 - react-dom.production.min.js
 - react.development.js
@@ -12,7 +12,7 @@ react and react-dom version: 16.4.1
 
 ## usage
 
-#### one time copy paste
+#### copy paste
 In the root of this Github repo are the four script files.
 - react.development.mjs
 - react-dom.development.mjs
