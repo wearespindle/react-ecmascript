@@ -9,7 +9,13 @@
     "type": "git",
     "url": "git@github.com:wearespindle/react-ecmascript.git"
   },
-  "keywords": [],
+  "keywords": [
+    "react",
+    "ecmascript",
+    "module",
+    "import",
+    "browser"
+  ],
   "author": "Joël Kuijten <joel.kuijten@wearespindle.com>",
   "license": "ISC",
   "bugs": {
@@ -21,8 +27,8 @@
   "dependencies": {
     "acorn": "^5.7.1",
     "args": "^5.0.0",
-    "react": "^16.4.1",
-    "react-dom": "^16.4.1",
+    "react": "^16.4.2",
+    "react-dom": "^16.4.2",
     "recast": "^0.15.3"
   },
   "devDependencies": {}

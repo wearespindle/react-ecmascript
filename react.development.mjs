@@ -102,7 +102,7 @@ var objectAssign = shouldUseNative() ? Object.assign : function (target, source)
 
 // TODO: this is special because it gets imported during build.
 
-var ReactVersion = '16.4.1';
+var ReactVersion = '16.4.2';
 
 // The Symbol used to tag the ReactElement-like types. If there is no native Symbol
 // nor polyfill, then a plain number is used for performance.
@@ -1806,25 +1806,40 @@ return react;
 
 })();
 const {
-  Component,
-  PureComponent,
-  unstable_AsyncComponent,
-  Fragment,
-  createElement,
+  __SECRET_INTERNALS_DO_NOT_USE_OR_YOU_WILL_BE_FIRED,
+  Children,
   cloneElement,
+  Component,
+  createContext,
+  createElement,
   createFactory,
+  createRef,
+  forwardRef,
+  Fragment,
   isValidElement,
+  PureComponent,
+  StrictMode,
+  unstable_AsyncMode,
+  unstable_Profiler,
   version
 } = React;
 export default React;
 export {
-  Component,
-  PureComponent,
-  unstable_AsyncComponent,
-  Fragment,
-  createElement,
+    __SECRET_INTERNALS_DO_NOT_USE_OR_YOU_WILL_BE_FIRED,
+  Children,
   cloneElement,
+  Component,
+  createContext,
+  createElement,
   createFactory,
+  createRef,
+  forwardRef,
+  Fragment,
   isValidElement,
+  PureComponent,
+  StrictMode,
+  unstable_AsyncMode,
+  unstable_Profiler,
   version
 };
+
