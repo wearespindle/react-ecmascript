@@ -11,10 +11,13 @@
   },
   "keywords": [
     "react",
+    "react-dom",
     "ecmascript",
     "module",
     "import",
-    "browser"
+    "browser",
+    "esm",
+    "mjs"
   ],
   "author": "Joël Kuijten <joel.kuijten@wearespindle.com>",
   "license": "ISC",
