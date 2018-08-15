@@ -10,7 +10,8 @@ const args = require('args').option(
   'uri',
   `The URI of the browser reachable directory the scripts will be served from.
 The relevant filename will be added to load the correct version (production.min or development).
-Examples: https://localhost:3000/static/ or /vendor/ or https://www.my-site.com/static/vendor/`
+Examples: https://localhost:3000/static/ or /vendor/ or https://www.my-site.com/static/vendor/`,
+  './'
 );
 const flags = args.parse(process.argv);
 
@@ -41,37 +42,43 @@ function getModuleStrings(importSourceUri = flags.uri) {
             importFilename
           } = require(joiner(transformersDirectory.concat(filename)));
 
-          const resolvedSourceFile = joiner([dirname(require.resolve(sourceModule))].concat(sourceFile));
+          const resolvedSourceFile = joiner(
+            [dirname(require.resolve(sourceModule))].concat(sourceFile)
+          );
 
           return read(joiner(targetsDirectory.concat(filename)), 'utf8').then(targetContent => {
             const targtetAst = recast.parse(targetContent, { parser });
 
-            return read(resolvedSourceFile).then(sourceContent => {
-              const newFilename = filename.replace(extname(filename), '.mjs');
+            return read(resolvedSourceFile)
+              .then(sourceContent => {
+                const newFilename = filename.replace(extname(filename), '.mjs');
 
-              const sourceAst = recast.parse(sourceContent, { parser });
+                const sourceAst = recast.parse(sourceContent, { parser });
 
-              // reference the part in the source AST we want to use
-              const body = walk(sourceAst.program, sourceSelectSteps);
+                // reference the part in the source AST we want to use
+                const body = walk(sourceAst.program, sourceSelectSteps);
 
-              // select the part we want to replace in the target with the part of the source AST
-              walk(targtetAst.program, targetSelectSteps).body = body;
+                // select the part we want to replace in the target with the part of the source AST
+                walk(targtetAst.program, targetSelectSteps).body = body;
 
-              if (importSourceUri && importSelectSteps && importFilename) {
-                const finalImpoprtSourceUri = `${importSourceUri}${importFilename}`;
-                walk(targtetAst.program, importSelectSteps).value = finalImpoprtSourceUri;
-                console.log(`replaced import source in ${newFilename} to ${finalImpoprtSourceUri}`);
-              }
+                if (importSourceUri && importSelectSteps && importFilename) {
+                  const finalImpoprtSourceUri = `${importSourceUri}${importFilename}`;
+                  walk(targtetAst.program, importSelectSteps).value = finalImpoprtSourceUri;
+                  console.log(
+                    `replaced import source in ${newFilename} to ${finalImpoprtSourceUri}`
+                  );
+                }
 
-              const generated = recast.print(targtetAst, { parser }).code;
+                const generated = recast.print(targtetAst, { parser }).code;
 
-              return {
-                filename: newFilename,
-                content: generated
-              };
-            }).catch(err => {
-              console.error(err);
-            })
+                return {
+                  filename: newFilename,
+                  content: generated
+                };
+              })
+              .catch(err => {
+                console.error(err);
+              });
           });
         })
       )
