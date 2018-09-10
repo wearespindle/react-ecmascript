@@ -8,7 +8,7 @@ ECMAScript module versions of
 
 with the right exports and imports to use them directly in [browsers which support ECMAScript modules and module loading](https://caniuse.com/#feat=es6-module).
 
-react and react-dom version: 16.4.2
+react and react-dom version: 16.5.0
 
 ## usage
 
