@@ -1,6 +1,6 @@
 {
   "name": "react-ecmascript",
-  "version": "1.2.1",
+  "version": "1.3.0",
   "description": "A script which transform React and ReactDOM into native Ecmascript modules to be used in browsers which support Ecmascript modules and module loading",
   "scripts": {
     "build": "node ./src/index.js"
