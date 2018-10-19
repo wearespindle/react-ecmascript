@@ -1,4 +1,4 @@
-/** @license React v16.5.0
+/** @license React v16.5.2
  * react.development.js
  *
  * Copyright (c) 2013-present, Facebook, Inc.

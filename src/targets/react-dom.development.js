@@ -1,5 +1,5 @@
 import React from 'react';
-/** @license React v16.5.0
+/** @license React v16.5.2
  * react-dom.development.js
  *
  * Copyright (c) 2013-present, Facebook, Inc.
@@ -19,7 +19,8 @@ const {
   unmountComponentAtNode,
   unstable_batchedUpdates,
   unstable_createPortal,
-  unstable_deferredUpdates,
+  unstable_createRoot,
+  unstable_flushControlled,
   unstable_interactiveUpdates,
   unstable_renderSubtreeIntoContainer
 } = ReactDOM;
@@ -34,7 +35,8 @@ export {
   unmountComponentAtNode,
   unstable_batchedUpdates,
   unstable_createPortal,
-  unstable_deferredUpdates,
+  unstable_createRoot,
+  unstable_flushControlled,
   unstable_interactiveUpdates,
   unstable_renderSubtreeIntoContainer
 };

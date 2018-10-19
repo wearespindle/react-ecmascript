@@ -8,9 +8,12 @@ ECMAScript module versions of
 
 with the right exports and imports to use them directly in [browsers which support ECMAScript modules and module loading](https://caniuse.com/#feat=es6-module).
 
-react and react-dom version: 16.5.0
+react and react-dom version: 16.5.2
 
 ## usage
+
+### pkg.module
+The module property in package.json only supports one file, and this creates four modules to use. Therefor the pkg.module isn't used and you need to copy the files yourself. Or generate them before you use them in development or during your build step.
 
 ### during development import them directly from unpkg.com
 ```js

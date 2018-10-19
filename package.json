@@ -28,11 +28,11 @@
   "main": "./src/index.js",
   "bin": "./src/index.js",
   "dependencies": {
-    "acorn": "^5.7.2",
+    "acorn": "^5.7.3",
     "args": "^5.0.0",
-    "react": "16.5.0",
-    "react-dom": "16.5.0",
-    "recast": "^0.15.3"
+    "react": "16.5.2",
+    "react-dom": "16.5.2",
+    "recast": "^0.15.5"
   },
   "devDependencies": {}
 }
