@@ -1,5 +1,5 @@
 import React from 'react';
-/** @license React v16.5.2
+/** @license React v16.6.0
  * react-dom.development.js
  *
  * Copyright (c) 2013-present, Facebook, Inc.
