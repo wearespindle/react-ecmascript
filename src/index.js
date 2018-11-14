@@ -27,6 +27,13 @@ const targetsDirectory = baseDirectory.concat('targets');
 const joiner = p => join.apply(null, p);
 
 const shouldWriteLibrariesToDisk = require.main === module;
+const exportedProperties = {
+  react: Object.keys(require('react')),
+  'react-dom': Object.keys(require('react-dom'))
+};
+
+// assuming the verions of react and react-dom stay the same we get the version from the package.json
+const version = process.env.npm_package_dependencies_react.replace(/[\^><=~]/g, '');
 
 function getModuleStrings(importSourceUri = flags.uri) {
   return readDirectory(joiner(transformersDirectory))
@@ -47,6 +54,11 @@ function getModuleStrings(importSourceUri = flags.uri) {
           );
 
           return read(joiner(targetsDirectory.concat(filename)), 'utf8').then(targetContent => {
+
+            targetContent = targetContent
+              .replace(/@@exports@@/g, exportedProperties[sourceModule].join(','))
+              .replace(/@@version@@/g, version);
+
             const targtetAst = recast.parse(targetContent, { parser });
 
             return read(resolvedSourceFile)
@@ -88,7 +100,8 @@ function getModuleStrings(importSourceUri = flags.uri) {
         (prev, { filename, content }) => Object.assign(prev, { [filename]: content }),
         {}
       )
-    );
+    )
+    .catch(console.error);
 }
 
 if (shouldWriteLibrariesToDisk) {

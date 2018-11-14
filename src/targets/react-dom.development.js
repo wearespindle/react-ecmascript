@@ -1,5 +1,6 @@
 import React from 'react';
-/** @license React v16.6.0
+
+/** @license React v@@version@@
  * react-dom.development.js
  *
  * Copyright (c) 2013-present, Facebook, Inc.
@@ -8,35 +9,9 @@ import React from 'react';
  * LICENSE file in the root directory of this source tree.
  */
 
-const ReactDOM = (function (){}());
-const {
-  __SECRET_INTERNALS_DO_NOT_USE_OR_YOU_WILL_BE_FIRED,
-  createPortal,
-  findDOMNode,
-  flushSync,
-  hydrate,
-  render,
-  unmountComponentAtNode,
-  unstable_batchedUpdates,
-  unstable_createPortal,
-  unstable_createRoot,
-  unstable_flushControlled,
-  unstable_interactiveUpdates,
-  unstable_renderSubtreeIntoContainer
-} = ReactDOM;
+const ReactDOM = (function() {
+
+}());
+const {@@exports@@} = ReactDOM;
 export default ReactDOM;
-export {
-  __SECRET_INTERNALS_DO_NOT_USE_OR_YOU_WILL_BE_FIRED,
-  createPortal,
-  findDOMNode,
-  flushSync,
-  hydrate,
-  render,
-  unmountComponentAtNode,
-  unstable_batchedUpdates,
-  unstable_createPortal,
-  unstable_createRoot,
-  unstable_flushControlled,
-  unstable_interactiveUpdates,
-  unstable_renderSubtreeIntoContainer
-};
+export {@@exports@@};

@@ -8,9 +8,9 @@ module.exports = function walk(item, checks = []) {
 
   let found = false;
   if (Array.isArray(item)) {
-    for (let i = 0, len = item.length; i < len; i++) {
-      if (check(item[i])) {
-        found = item[i];
+    for (let currentItem of item) {
+      if (check(currentItem)) {
+        found = currentItem;
         break;
       }
     }
