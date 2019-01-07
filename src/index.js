@@ -45,6 +45,8 @@ function getModuleStrings(importSourceUri = flags.uri) {
             sourceModule,
             sourceFile,
             sourceSelectSteps,
+            argumentSelectSteps,
+            targetArgumentSelectSteps,
             importSelectSteps,
             importFilename
           } = require(joiner(transformersDirectory.concat(filename)));
@@ -70,8 +72,15 @@ function getModuleStrings(importSourceUri = flags.uri) {
                 // reference the part in the source AST we want to use
                 const body = walk(sourceAst.program, sourceSelectSteps);
 
+
                 // select the part we want to replace in the target with the part of the source AST
                 walk(targtetAst.program, targetSelectSteps).body = body;
+
+                // replace the argument to functionExpression when we need to
+                if (argumentSelectSteps && targetArgumentSelectSteps) {
+                  const arg = walk(sourceAst.program, argumentSelectSteps);
+                  walk(targtetAst.program, targetArgumentSelectSteps).push(arg);
+                }
 
                 if (importSourceUri && importSelectSteps && importFilename) {
                   const finalImpoprtSourceUri = `${importSourceUri}${importFilename}`;
