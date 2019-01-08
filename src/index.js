@@ -5,16 +5,6 @@ const { join, extname, dirname } = require('path');
 const { promisify } = require('util');
 const recast = require('recast');
 const parser = require('recast/parsers/acorn');
-
-const args = require('args').option(
-  'uri',
-  `The URI of the browser reachable directory the scripts will be served from.
-The relevant filename will be added to load the correct version (production.min or development).
-Examples: https://localhost:3000/static/ or /vendor/ or https://www.my-site.com/static/vendor/`,
-  './'
-);
-const flags = args.parse(process.argv);
-
 const walk = require('./walk');
 
 const read = promisify(fs.readFile);
@@ -35,7 +25,7 @@ const exportedProperties = {
 // assuming the verions of react and react-dom stay the same we get the version from the package.json
 const version = process.env.npm_package_dependencies_react.replace(/[\^><=~]/g, '');
 
-function getModuleStrings(importSourceUri = flags.uri) {
+function getModuleStrings(importSourceUri = './') {
   return readDirectory(joiner(transformersDirectory))
     .then(filenames =>
       Promise.all(
@@ -45,8 +35,6 @@ function getModuleStrings(importSourceUri = flags.uri) {
             sourceModule,
             sourceFile,
             sourceSelectSteps,
-            argumentSelectSteps,
-            targetArgumentSelectSteps,
             importSelectSteps,
             importFilename
           } = require(joiner(transformersDirectory.concat(filename)));
@@ -70,23 +58,18 @@ function getModuleStrings(importSourceUri = flags.uri) {
                 const sourceAst = recast.parse(sourceContent, { parser });
 
                 // reference the part in the source AST we want to use
-                const body = walk(sourceAst.program, sourceSelectSteps);
+                const functionExpression = walk(sourceAst.program, sourceSelectSteps);
 
 
                 // select the part we want to replace in the target with the part of the source AST
-                walk(targtetAst.program, targetSelectSteps).body = body;
+                // and copy the functionExpression over to it
+                walk(targtetAst.program, targetSelectSteps).callee = functionExpression;
 
-                // replace the argument to functionExpression when we need to
-                if (argumentSelectSteps && targetArgumentSelectSteps) {
-                  const arg = walk(sourceAst.program, argumentSelectSteps);
-                  walk(targtetAst.program, targetArgumentSelectSteps).push(arg);
-                }
-
-                if (importSourceUri && importSelectSteps && importFilename) {
-                  const finalImpoprtSourceUri = `${importSourceUri}${importFilename}`;
-                  walk(targtetAst.program, importSelectSteps).value = finalImpoprtSourceUri;
+                if (importSelectSteps && importFilename) {
+                  const finalImportSourceUri = `${importSourceUri}${importFilename}`;
+                  walk(targtetAst.program, importSelectSteps).value = finalImportSourceUri;
                   console.log(
-                    `replaced import source in ${newFilename} to ${finalImpoprtSourceUri}`
+                    `replaced import source in ${newFilename} to ${finalImportSourceUri}`
                   );
                 }
 

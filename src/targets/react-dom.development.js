@@ -11,7 +11,7 @@ import React from 'react';
 
 const ReactDOM = (function() {
 
-}());
+}(React));
 const {@@exports@@} = ReactDOM;
 export default ReactDOM;
 export {@@exports@@};

@@ -7,7 +7,7 @@
  * LICENSE file in the root directory of this source tree.
  */
 
-const React = (function() { 'use strict';
+const React = (function () { 'use strict';
 
 // TODO: this is special because it gets imported during build.
 

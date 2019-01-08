@@ -9,7 +9,7 @@ import React from "./react.development.mjs";
  * LICENSE file in the root directory of this source tree.
  */
 
-const ReactDOM = (function() { 'use strict';
+const ReactDOM = (function (React) { 'use strict';
 
 /**
  * Use invariant() to assert state which your program assumes to be true.
@@ -19844,7 +19844,7 @@ var reactDom = ReactDOM$3.default || ReactDOM$3;
 
 return reactDom;
 
-}());
+}(React));
 const {createPortal,findDOMNode,hydrate,render,unstable_renderSubtreeIntoContainer,unmountComponentAtNode,unstable_createPortal,unstable_batchedUpdates,unstable_interactiveUpdates,flushSync,unstable_flushControlled,__SECRET_INTERNALS_DO_NOT_USE_OR_YOU_WILL_BE_FIRED,unstable_createRoot} = ReactDOM;
 export default ReactDOM;
 export {createPortal,findDOMNode,hydrate,render,unstable_renderSubtreeIntoContainer,unmountComponentAtNode,unstable_createPortal,unstable_batchedUpdates,unstable_interactiveUpdates,flushSync,unstable_flushControlled,__SECRET_INTERNALS_DO_NOT_USE_OR_YOU_WILL_BE_FIRED,unstable_createRoot};

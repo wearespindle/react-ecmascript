@@ -29,7 +29,6 @@
   "bin": "./src/index.js",
   "dependencies": {
     "acorn": "^5.7.3",
-    "args": "^5.0.0",
     "react": "16.6.3",
     "react-dom": "16.6.3",
     "recast": "^0.15.5"

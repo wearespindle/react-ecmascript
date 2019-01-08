@@ -20,8 +20,7 @@ module.exports = {
         return o;
       }
       return false;
-    },
-    o => o.body
+    }
   ],
   targetSelectSteps: [
     o => o.body,
@@ -29,7 +28,6 @@ module.exports = {
     o => o.declarations,
     o => (o.type === 'VariableDeclarator' ? o : false),
     o => o.init,
-    o => (o.type === 'CallExpression' ? o : false),
-    o => o.callee
+    o => (o.type === 'CallExpression' ? o : false)
   ]
 };
