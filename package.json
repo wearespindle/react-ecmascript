@@ -29,9 +29,11 @@
   "bin": "./src/index.js",
   "dependencies": {
     "acorn": "^5.7.3",
-    "react": "16.6.3",
-    "react-dom": "16.6.3",
     "recast": "^0.15.5"
+  },
+  "peerDependencies": {
+    "react": "*",
+    "react-dom": "*"
   },
   "devDependencies": {}
 }
